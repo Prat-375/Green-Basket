@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import PageWrapper from "../components/PageWrapper";
 
 function ProductDetailsPage() {
   const { id } = useParams();
@@ -9,44 +10,48 @@ function ProductDetailsPage() {
 
   if (!product) {
     return (
-      <main className="page-container">
-        <div className="empty-box">
-          <h2>Product not found</h2>
-          <Link to="/shop" className="hero-btn">
-            Back to Shop
-          </Link>
-        </div>
-      </main>
+      <PageWrapper>
+        <main className="page-container">
+          <div className="empty-box">
+            <h2>Product not found</h2>
+            <Link to="/shop" className="hero-btn">
+              Back to Shop
+            </Link>
+          </div>
+        </main>
+      </PageWrapper>
     );
   }
 
   return (
-    <main className="page-container">
-      <div className="details-page">
-        <div className="details-image-box">
-          <div className="details-emoji">{product.image}</div>
-        </div>
+    <PageWrapper>
+      <main className="page-container">
+        <div className="details-page">
+          <div className="details-image-box">
+            <div className="details-emoji">{product.image}</div>
+          </div>
 
-        <div className="details-content">
-          <p className="category-badge">{product.category}</p>
-          <h2>{product.name}</h2>
-          <p className="details-price">
-            €{product.price} / {product.unit}
-          </p>
-          <p className="details-description">{product.description}</p>
+          <div className="details-content">
+            <p className="category-badge">{product.category}</p>
+            <h2>{product.name}</h2>
+            <p className="details-price">
+              €{product.price} / {product.unit}
+            </p>
+            <p className="details-description">{product.description}</p>
 
-          <div className="details-actions">
-            <button className="checkout-btn" onClick={() => addToCart(product)}>
-              Add to Cart
-            </button>
+            <div className="details-actions">
+              <button className="checkout-btn" onClick={() => addToCart(product)}>
+                Add to Cart
+              </button>
 
-            <Link to="/shop" className="secondary-btn link-btn">
-              Back to Shop
-            </Link>
+              <Link to="/shop" className="secondary-btn link-btn">
+                Back to Shop
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </PageWrapper>
   );
 }
 
