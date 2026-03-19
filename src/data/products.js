@@ -1,0 +1,58 @@
+const products = [
+  {
+    id: 1,
+    name: "Tomato",
+    price: 2.5,
+    unit: "kg",
+    image: "🍅",
+    category: "Fresh",
+    description: "Fresh tomatoes, perfect for salads, curries, and sauces.",
+  },
+  {
+    id: 2,
+    name: "Potato",
+    price: 1.8,
+    unit: "kg",
+    image: "🥔",
+    category: "Root",
+    description: "High-quality potatoes for frying, boiling, and roasting.",
+  },
+  {
+    id: 3,
+    name: "Carrot",
+    price: 2.2,
+    unit: "kg",
+    image: "🥕",
+    category: "Root",
+    description: "Crunchy carrots rich in color and ideal for daily meals.",
+  },
+  {
+    id: 4,
+    name: "Onion",
+    price: 1.9,
+    unit: "kg",
+    image: "🧅",
+    category: "Root",
+    description: "Fresh onions with strong flavor for cooking and seasoning.",
+  },
+  {
+    id: 5,
+    name: "Cucumber",
+    price: 1.4,
+    unit: "piece",
+    image: "🥒",
+    category: "Fresh",
+    description: "Cool and fresh cucumbers, great for salads and snacks.",
+  },
+  {
+    id: 6,
+    name: "Broccoli",
+    price: 3.0,
+    unit: "piece",
+    image: "🥦",
+    category: "Fresh",
+    description: "Nutritious broccoli, perfect for steaming and stir-fry.",
+  },
+];
+
+export default products;
