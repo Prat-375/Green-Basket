@@ -50,28 +50,49 @@ function CheckoutPage() {
     return newErrors;
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  async function handleSubmit(e) {
+  e.preventDefault();
 
-    if (cartItems.length === 0) return;
+  if (cartItems.length === 0) return;
 
-    const validationErrors = validate();
+  const validationErrors = validate();
 
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
+  if (Object.keys(validationErrors).length > 0) {
+    setErrors(validationErrors);
+    return;
+  }
+
+  const orderData = {
+    customerInfo: formData,
+    orderItems: cartItems,
+    total: cartTotal,
+  };
+
+  try {
+    const response = await fetch("http://localhost:5000/api/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(orderData),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message);
     }
 
-    const orderData = {
-      customerInfo: formData,
-      orderItems: cartItems,
-      total: cartTotal,
-    };
+    // store response from backend
+    sessionStorage.setItem("latest-order", JSON.stringify(data.order));
 
-    sessionStorage.setItem("latest-order", JSON.stringify(orderData));
     clearCart();
     navigate("/success");
+  } catch (error) {
+    console.error(error);
+    alert("Order failed. Try again.");
   }
+}
 
   return (
     <PageWrapper>

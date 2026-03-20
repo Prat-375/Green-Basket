@@ -7,6 +7,7 @@ import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import OrderSuccess from "./pages/OrderSuccess";
+import AdminOrders from "./pages/AdminOrders";
 
 function App() {
   const location = useLocation();
@@ -22,6 +23,7 @@ function App() {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/success" element={<OrderSuccess />} />
+          <Route path="/admin/orders" element={<AdminOrders />} />
         </Routes>
       </AnimatePresence>
     </>

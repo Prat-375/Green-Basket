@@ -837,3 +837,109 @@ html {
   text-align: center;
   margin-bottom: 0.75rem;
 }
+
+.orders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.order-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.2rem;
+}
+
+.order-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.order-card h3 {
+  font-size: 1.2rem;
+}
+
+.status-badge {
+  background: var(--primary-soft);
+  color: var(--primary);
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.order-card p {
+  margin-bottom: 0.45rem;
+}
+
+.order-items-block {
+  margin-top: 0.8rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--line);
+}
+
+.order-items-block ul {
+  margin-top: 0.5rem;
+  padding-left: 1.2rem;
+}
+
+.order-date {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.status-update-box {
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.status-update-box label {
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.status-update-box select {
+  padding: 0.65rem 0.8rem;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: white;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+.status-update-box select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.12);
+}
+
+.status-pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-confirmed {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.status-delivered {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-cancelled {
+  background: #fee2e2;
+  color: #b91c1c;
+}
