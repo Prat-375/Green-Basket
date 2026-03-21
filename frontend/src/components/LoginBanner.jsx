@@ -25,6 +25,7 @@ function LoginBanner() {
         </Link>
 
         <button
+          type="button"
           className="shop-banner-close-btn"
           onClick={() => setVisible(false)}
           aria-label="Close banner"

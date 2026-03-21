@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
 import ProductList from "../components/ProductList";
+import LoginBanner from "../components/LoginBanner";
 import { useCart } from "../context/CartContext";
 import PageWrapper from "../components/PageWrapper";
-import LoginBanner from "../components/LoginBanner";
 
 function Shop() {
   const { products, addToCart } = useCart();
