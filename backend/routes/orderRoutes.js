@@ -1,9 +1,10 @@
 import express from "express";
 import Order from "../models/Order.js";
+import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-router.post("/", async (req, res) => {
+router.post("/", protect, async (req, res) => {
   try {
     const { customerInfo, orderItems, total } = req.body;
 
@@ -22,6 +23,7 @@ router.post("/", async (req, res) => {
     }));
 
     const order = await Order.create({
+      user: req.user.userId,
       customerInfo,
       orderItems: formattedItems,
       total,
@@ -42,15 +44,20 @@ router.post("/", async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const orders = await Order.find().sort({ createdAt: -1 });
-
-    res.status(200).json({
-      orders,
-    });
+    res.status(200).json({ orders });
   } catch (error) {
     console.error("Fetch orders error:", error);
-    res.status(500).json({
-      message: "Failed to fetch orders",
-    });
+    res.status(500).json({ message: "Failed to fetch orders" });
+  }
+});
+
+router.get("/my-orders", protect, async (req, res) => {
+  try {
+    const orders = await Order.find({ user: req.user.userId }).sort({ createdAt: -1 });
+    res.status(200).json({ orders });
+  } catch (error) {
+    console.error("Fetch my orders error:", error);
+    res.status(500).json({ message: "Failed to fetch user orders" });
   }
 });
 

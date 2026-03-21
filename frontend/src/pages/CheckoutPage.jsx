@@ -2,9 +2,11 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import PageWrapper from "../components/PageWrapper";
+import { useAuth } from "../context/AuthContext";
 
 function CheckoutPage() {
   const { cartItems, cartTotal, clearCart } = useCart();
+  const { token } = useAuth();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -73,8 +75,10 @@ function CheckoutPage() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(orderData),
+
     });
 
     const data = await response.json();
