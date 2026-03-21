@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import ProductList from "../components/ProductList";
 import { useCart } from "../context/CartContext";
 import PageWrapper from "../components/PageWrapper";
+import LoginBanner from "../components/LoginBanner";
 
 function Shop() {
   const { products, addToCart } = useCart();
@@ -28,7 +29,7 @@ function Shop() {
       <main className="page-container">
         <div className="section-header">
           <h2>Shop Vegetables</h2>
-
+          <LoginBanner />
           <div className="top-controls">
             <input
               className="search-input"

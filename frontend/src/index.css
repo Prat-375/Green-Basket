@@ -985,3 +985,70 @@ html {
   border-radius: 8px;
   font-weight: 700;
 }
+
+/* Login Banner */
+
+.login-banner {
+  background: linear-gradient(135deg, #e8f5e9, #f1f8f2);
+  border: 1px solid #c8e6c9;
+  border-radius: 12px;
+  padding: 0.9rem 1.2rem;
+  margin-bottom: 1.5rem;
+  animation: slideDown 0.3s ease;
+}
+
+.login-banner-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.login-banner span {
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+.banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.banner-login-btn {
+  background: var(--primary);
+  color: white;
+  padding: 0.35rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.banner-login-btn:hover {
+  opacity: 0.9;
+}
+
+.banner-close-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #666;
+}
+
+.banner-close-btn:hover {
+  color: #000;
+}
+
+/* Animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

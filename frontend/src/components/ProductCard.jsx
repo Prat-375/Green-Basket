@@ -10,7 +10,7 @@ function ProductCard({ product, onAddToCart }) {
       <h3>{product.name}</h3>
       <p className="category-badge">{product.category}</p>
 
-      {isLoggedIn ? (
+      {isLoggedIn && (
         <>
           <p>
             €{product.price} / {product.unit}
@@ -23,13 +23,6 @@ function ProductCard({ product, onAddToCart }) {
             </Link>
           </div>
         </>
-      ) : (
-        <div className="guest-lock-box">
-          <p className="guest-message">Login to view prices and place orders</p>
-          <Link to="/login" className="secondary-btn link-btn">
-            Login
-          </Link>
-        </div>
       )}
     </div>
   );
