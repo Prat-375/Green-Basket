@@ -27,10 +27,17 @@ function Shop() {
   return (
     <PageWrapper>
       <main className="page-container">
-        <div className="section-header">
-          <h2>Shop Vegetables</h2>
+        <section className="shop-header-block">
+          <div className="shop-heading-row">
+            <div>
+              <p className="shop-eyebrow">Fresh • Seasonal • Delivered</p>
+              <h2>Shop Vegetables</h2>
+            </div>
+          </div>
+
           <LoginBanner />
-          <div className="top-controls">
+
+          <div className="shop-controls-card">
             <input
               className="search-input"
               type="text"
@@ -51,7 +58,7 @@ function Shop() {
               ))}
             </select>
           </div>
-        </div>
+        </section>
 
         <ProductList products={filteredProducts} onAddToCart={addToCart} />
       </main>

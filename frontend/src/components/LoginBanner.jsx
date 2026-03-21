@@ -9,24 +9,28 @@ function LoginBanner() {
   if (isLoggedIn || !visible) return null;
 
   return (
-    <div className="login-banner">
-      <div className="login-banner-content">
-        <span>
-          🔐 Login to view prices and place orders
-        </span>
+    <div className="shop-banner">
+      <div className="shop-banner-icon">🔐</div>
 
-        <div className="banner-actions">
-          <Link to="/login" className="banner-login-btn">
-            Login
-          </Link>
+      <div className="shop-banner-text">
+        <h3>Unlock prices and ordering</h3>
+        <p>
+          Sign in to view product prices, add items to your cart, and place orders.
+        </p>
+      </div>
 
-          <button
-            className="banner-close-btn"
-            onClick={() => setVisible(false)}
-          >
-            ✕
-          </button>
-        </div>
+      <div className="shop-banner-actions">
+        <Link to="/login" className="shop-banner-login-btn">
+          Login
+        </Link>
+
+        <button
+          className="shop-banner-close-btn"
+          onClick={() => setVisible(false)}
+          aria-label="Close banner"
+        >
+          ✕
+        </button>
       </div>
     </div>
   );
