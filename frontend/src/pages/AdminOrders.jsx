@@ -15,7 +15,7 @@ function AdminOrders() {
     try {
       setLoading(true);
 
-      const response = await fetch("http://localhost:5000/api/orders");
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/orders`);
       const data = await response.json();
 
       if (!response.ok) {
@@ -37,7 +37,7 @@ function AdminOrders() {
       setUpdatingId(orderId);
 
       const response = await fetch(
-        `http://localhost:5000/api/orders/${orderId}/status`,
+        `${import.meta.env.VITE_API_URL}/api/orders/${orderId}/status`,
         {
           method: "PATCH",
           headers: {

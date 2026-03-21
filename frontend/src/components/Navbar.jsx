@@ -12,7 +12,6 @@ function Navbar() {
         <NavLink to="/">Home</NavLink>
         <NavLink to="/shop">Shop</NavLink>
         <NavLink to="/cart">Cart ({cartCount})</NavLink>
-        <NavLink to="/admin/orders">Orders</NavLink>
       </div>
     </nav>
   );
